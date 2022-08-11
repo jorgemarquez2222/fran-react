@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+
 
 function App() {
+  const data = [
+    {
+      name: "Fran",
+      edad: 50,
+    }, {
+      name: "Jorge",
+      edad: 33,
+    }, {
+      name: "Osiris",
+      edad: 50,
+    }
+  ]
+  const [count, setCount] = useState(0); // hook
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+  const element = (
+    <ul>
+     { data.length &&
+      data.map((item, index) => {
+        return <li key={index}> {item.name} </li>
+      })
+     }
+    </ul>
+  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="nombreDeLaClase">
+      <h2>Hola fran</h2>
+      {element}
+      <p>tu cliqueaste {count} veces</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
     </div>
-  );
+  )
 }
 
 export default App;
