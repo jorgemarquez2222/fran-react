@@ -5,6 +5,7 @@ const AddUser = ({
     dataBack,
     userInput,
     setDataBack,
+    addUser,
 }) => {
     const cambioDeInput = (e) => {
         setUserInput(e.currentTarget.value)
@@ -12,12 +13,13 @@ const AddUser = ({
     return (<>
 
         <input value={userInput} type="text" onChange={cambioDeInput} placeholder="Enter task..." />
-        <button onClick={() => {
+        <button onClick={ async () => {
             const copia = [...dataBack]
             copia.push({
                 name: userInput,
                 edad: 50,
             })
+            await addUser(userInput)
             setDataBack(copia)
             console.log("Ejecutando boton")
         }}>

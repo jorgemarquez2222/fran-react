@@ -8,6 +8,7 @@ import RefreshData from './components/RefreshData';
 import {
   getUsers,
   deleteUser,
+  addUser,
 } from './services/CrudUser';
 
 
@@ -40,6 +41,7 @@ function App() {
         dataBack={dataBack}
         userInput={userInput}
         setDataBack={setDataBack}
+        addUser={addUser}
       />
       <RefreshData
         getUsers={getUsers}
