@@ -9,13 +9,17 @@ import {
   getUsers,
   deleteUser,
   addUser,
+  updateUser,
 } from './services/CrudUser';
 
 
 function App() {
   const [count, setCount] = useState(0); // hook
   const [dataBack, setDataBack] = useState([]); // hook
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState({
+    id: "",
+    name:""
+  });
 
   useEffect(() => {
     document.title = `You clicked ${count} times`;
@@ -30,11 +34,17 @@ function App() {
     <div className="nombreDeLaClase">
       <h2>Hola fran</h2>
       <LocalData />
-      <ClickCount count={count} setCount={setCount} />
+      <ClickCount
+        count={count}
+        setCount={setCount}
+      />
       <ListDataBack
         dataBack={dataBack}
         setDataBack={setDataBack}
+        setUserInput={setUserInput}
         deleteUser={deleteUser}
+        updateUser={updateUser}
+        
       />
       <AddUser
         setUserInput={setUserInput}
@@ -46,6 +56,8 @@ function App() {
       <RefreshData
         getUsers={getUsers}
         setDataBack={setDataBack}
+        updateUser={updateUser}
+        userInput={userInput}
       />
     </div>
   )

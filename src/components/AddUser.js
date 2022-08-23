@@ -8,20 +8,32 @@ const AddUser = ({
     addUser,
 }) => {
     const cambioDeInput = (e) => {
-        setUserInput(e.currentTarget.value)
-      }
+        //setUserInput(e.currentTarget.value)
+        console.log("verifico", userInput)
+        setUserInput({
+            id: userInput.id,
+            name:e.currentTarget.value
+        })
+        //console.log("userimput ", userInput)
+        //setUserInput(userInput)
+
+    }
     return (<>
 
-        <input value={userInput} type="text" onChange={cambioDeInput} placeholder="Enter task..." />
+        <input value={userInput.name} type="text" onChange={cambioDeInput} placeholder="Enter task..." />
         <button onClick={ async () => {
             const copia = [...dataBack]
             copia.push({
-                name: userInput,
+                name: userInput.name,
                 edad: 50,
             })
-            await addUser(userInput)
+            await addUser(userInput.name)
             setDataBack(copia)
             console.log("Ejecutando boton")
+            setUserInput({
+                id: "",
+                name:""
+            })
         }}>
             Add user
         </button>
