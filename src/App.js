@@ -18,7 +18,6 @@ function App() {
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
     // const data = await getUsers() es lo mismo que la linea de abajo (no habilitar)
     getUsers().then((data) => {
       console.log("aqui es data", data)
