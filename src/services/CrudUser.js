@@ -23,6 +23,29 @@ export async function deleteUser(person) {
     return response.data
 }
 
+export async function updateUser(person){
+    var data = JSON.stringify(person)
+    
+    var config = {
+      method: 'put',
+      url: 'http://localhost:3000/user',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+    
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
+
+}
+
 export async function addUser(name) {
     const options = {
         method: 'post',

@@ -3,6 +3,8 @@ import React from 'react';
 const RefreshData = ({
     getUsers,
     setDataBack,
+    updateUser,
+    userInput
 }) => {
     return (<>
         <button onClick={() => {
@@ -12,6 +14,13 @@ const RefreshData = ({
         }}>
             Click al backend
         </button>
+        <button onClick={() => {
+            //updateUser().then((data) => {})
+            updateUser(userInput)
+        }}>
+            Actualizar
+        </button>
+
     </>)
 }
 
