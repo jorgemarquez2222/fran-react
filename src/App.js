@@ -27,6 +27,7 @@ function App() {
       console.log("aqui es data", data)
       setDataBack(data)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
